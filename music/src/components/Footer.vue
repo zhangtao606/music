@@ -18,7 +18,6 @@
 </script>
 
 <style rel="stylesheet">
- @import "../assets/css/iconfont.css";
 
   .footer-bg{
     width:100%;

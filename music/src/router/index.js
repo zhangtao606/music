@@ -26,6 +26,12 @@ export default new Router({
     	name: 'My',
     	meta: { title: '我的' },
     	component: resolve => require(['@/pages/My'], resolve)
-    } 
+    },
+    {
+      path: '/journalList',
+      name: 'JournalList',
+      meta: { title: '日志列表' },
+      component: resolve => require(['@/pages/JournalList'], resolve)
+    }  
   ]
 })

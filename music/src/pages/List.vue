@@ -1,15 +1,16 @@
-<template>
+<template v-cloak>
     <div>
     	<div v-wechat-title="$route.meta.title"></div>
     	<div class="list-content">
-    		<div class="list-box" v-for="(item,index) in list">
+    		<div class="list-box" v-for="items in lists">
     			<div class="list-title">
-    				<div class="list-name"><i class="iconfont" :class="[item.font]"></i>{{item.title}}</div>
+    				<div class="list-name"><i class="iconfont" :class="[items.font]"></i>{{items.title}}</div>
     				<div class="list-add"><i class="el-icon-zoom-in"></i>添加</div>
     			</div>
     			<div class="list-item">
-    				<el-row :gutter="10">
-					  <el-col :span="6" v-for="item in item.list"><div class="grid-content bg-purple-dark">{{item.title}}</div>
+    				<el-row :gutter="10">  				
+					  <el-col :span="6" v-for="(item,index) in items.list" :key='index'>
+					  	<router-link :to="{ path: '/journalList',query:{id:1}}"><div class="grid-content bg-purple-dark">{{item.title}}</div></router-link>
 					  </el-col>
 					</el-row>
     			</div>
@@ -26,7 +27,7 @@ import Foot from '../components/Footer'
 	  name: '',
 	  data () {
 	    return {
-	      list:[{
+	      lists:[{
 	      	title:"图片",
 	      	src:'',
 	      	font:'icon-tupian',
